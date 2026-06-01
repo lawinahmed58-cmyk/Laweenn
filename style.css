@@ -1,0 +1,205 @@
+/* --- LUXURY THEME VARIABLES --- */
+:root {
+  --bg-deep: #050507;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-main: #ffffff;
+  --text-dim: rgba(255, 255, 255, 0.5);
+  --accent-gold: #d4af7a;
+  --snap-yellow: #FFFC00;
+  --tele-blue: #24A1DE;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- RESET & BASE --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-image: url(flat-lay-workstation-with-copy-space-laptop.jpg);
+    background-size: cover;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  
+}
+
+
+
+
+
+
+
+
+
+.aura {
+  position: absolute;
+  width: 80vw;
+  height: 80vw;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+  animation: float 20s infinite alternate;
+}
+
+.aura-1 { background: var(--accent-gold); top: -20%; left: -10%; }
+.aura-2 { background: var(--tele-blue); bottom: -20%; right: -10%; animation-delay: -5s; }
+
+@keyframes float {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(10%, 15%) scale(1.1); }
+}
+
+/* --- THE CARD --- */
+.main-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 520px;
+  max-height: 80pz;
+  padding: 20px;
+}
+
+.profile-card {
+  background: var(--glass);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
+  border-radius: 40px;
+  padding: 45px 30px;
+  text-align: center;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+  animation: reveal 1.2s var(--ease) forwards;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- AVATAR --- */
+.avatar-container {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  margin: 0 auto 30px;
+}
+
+.avatar-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid var(--glass-border);
+}
+
+.avatar-inner img { width: 100%; height: 100%; object-fit: cover; }
+
+.avatar-glow {
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+/* --- TYPOGRAPHY --- */
+.name {
+  font-family: cursive, 'Brush Script MT', cursive;
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.name span { color: var(--accent-gold); font-style: italic; }
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 18px;
+}
+
+.bio {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  margin-bottom: 35px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* --- BUTTONS --- */
+.links-grid { display: flex; flex-direction: column; gap: 16px; }
+
+.glass-btn {
+  display: flex;
+  align-items: center;
+  padding: 15px 22px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.4s var(--ease);
+}
+
+.glass-btn:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 0.4s var(--ease);
+}
+
+.glass-btn:hover .icon-box {
+    transform: rotate(-10deg) scale(1.15);
+}
+
+svg { width: 22px; height: 22px; fill: white; }
+
+.label { flex: 1; font-weight: 600; font-size: 0.92rem; letter-spacing: 0.5px; }
+
+.chevron { width: 18px; opacity: 0.2; transition: transform 0.3s ease; }
+.glass-btn:hover .chevron { opacity: 1; transform: translateX(5px); color: var(--accent-gold); }
+
+/* Brand Highlights */
+.ig .icon-box { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.sc .icon-box { background: var(--snap-yellow); }
+.sc svg { fill: #000; width: 26px; height: 26px; }
+.tg .icon-box { background: var(--tele-blue); }
+.tt .icon-box { background: #000; border: 1px solid #333; }
+
+/* Glow Effects on Hover */
+.ig:hover { box-shadow: 0 15px 30px rgba(225, 48, 108, 0.2); }
+.sc:hover { box-shadow: 0 15px 30px rgba(255, 252, 0, 0.2); }
+.tg:hover { box-shadow: 0 15px 30px rgba(34, 161, 222, 0.25); }
+.tt:hover { box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); }
+
+/* --- FOOTER --- */
+.footer {
+    font-family: 'Times New Roman', Times, serif;
+  margin-top: 45px;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 1.5px;
+}
